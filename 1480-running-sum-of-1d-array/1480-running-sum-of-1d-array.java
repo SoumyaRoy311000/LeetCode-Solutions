@@ -4,7 +4,7 @@ class Solution {
         for(int i = 0; i<nums.length; i++){
             runningSum[i] = totalSum(nums, i);
         }
-        return runningSum;
+        return runningSum; //returns answer
     }
     
     int totalSum(int[] nums, int i){
@@ -15,6 +15,6 @@ class Solution {
         else{
             sum+=totalSum(nums, i-1)+nums[i];
         }
-        return sum; //returns sum
+        return sum; //returns sums per i
     }
 }
