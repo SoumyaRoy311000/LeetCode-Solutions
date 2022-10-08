@@ -15,6 +15,6 @@ class Solution {
         else{
             sum+=totalSum(nums, i-1)+nums[i];
         }
-        return sum;
+        return sum; //returns sum
     }
 }
