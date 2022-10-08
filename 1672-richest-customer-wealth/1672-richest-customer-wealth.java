@@ -5,6 +5,7 @@ class Solution {
             int total = totalWealth(j);
             if(max<total){
                 max = total;
+                
             }
         }
         return max;
