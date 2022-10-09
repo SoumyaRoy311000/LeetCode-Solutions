@@ -36,7 +36,6 @@ class Solution {
         if(isAsc){
             int start = 0;
             int end = peak;
-            int ans = -1;
             while(start<=end){
                 int mid = start+(end-start)/2;
                 if(arr.get(mid)<target){
@@ -46,16 +45,14 @@ class Solution {
                     end = mid-1;
                 }
                 else{
-                    ans = mid;
-                    end = mid-1;
+                    return mid;
                 }
             }
-            return ans;
+            return -1;
         }
         else{
             int start = peak;
             int end = arr.length()-1;
-            int ans = -1;
             while(start<=end){
                 int mid = start+(end-start)/2;
                 if(arr.get(mid)>target){
@@ -65,11 +62,10 @@ class Solution {
                     end = mid-1;
                 }
                 else{
-                    ans = mid;
-                    end = mid-1;
+                    return mid;
                 }
             }
-            return ans;
+            return -1;
         }
     }
 }
