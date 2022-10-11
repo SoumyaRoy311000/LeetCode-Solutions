@@ -23,14 +23,13 @@ class Solution {
         int sum = 0;
         int pieces = 1;
         int i = 0;
-        while(i<nums.length) {
-            if(sum+nums[i]>mid){
-                sum = 0;
-                pieces++;
+        for (int num: nums) {
+            if(sum+num>mid){
+                sum = num;
+                pieces+=1;
             }
-            else {
-                sum = sum+nums[i];
-                i = i+1;
+            else{
+                sum+=num;
             }
         }
         return pieces;
