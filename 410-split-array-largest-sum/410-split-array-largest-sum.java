@@ -1,7 +1,11 @@
 class Solution {
     public int splitArray(int[] nums, int k) {
-        int start = findMax(nums);
-        int end = findSum(nums);
+        int start = 0;
+        int end = 0;
+        for(int num: nums){
+            start = Math.max(start, num);
+            end = end+num;
+        }
         while(start<end){
             int mid = start+(end-start)/2;
             int pieces = findPieces(nums, mid);
@@ -30,23 +34,5 @@ class Solution {
             }
         }
         return pieces;
-    }
-    
-    int findSum(int[] nums) {
-        int sum = 0;
-        for(int num: nums){
-            sum = sum+num;
-        }
-        return sum;
-    }
-    
-    int findMax(int[] nums) {
-        int max = -1;
-        for (int num : nums) {
-            if (num > max) {
-                max = num;
-            }
-        }
-        return max;
     }
 }
