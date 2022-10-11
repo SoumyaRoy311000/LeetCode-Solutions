@@ -20,18 +20,14 @@ class Solution {
         int pieces = 1;
         int i = 0;
         while(i<nums.length) {
-            if(sum>mid){
+            if(sum+nums[i]>mid){
                 sum = 0;
                 pieces++;
-                i = i-1;
             }
             else {
                 sum = sum+nums[i];
                 i = i+1;
             }
-        }
-        if(sum>mid){
-            return pieces+1;
         }
         return pieces;
     }
