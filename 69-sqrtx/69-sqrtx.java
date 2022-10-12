@@ -1,20 +1,18 @@
 class Solution {
     public int mySqrt(int x) {
-        long sqrt=0;
-        if(x==0){
-            return 0;
-        }
-        if(x==1){
-            return 1;
-        }
-        for(long i = 0; i<=x; i++)
-        {
-            long square = i*i;
-            if(square>x){
-                sqrt = i;
-                break;
+        long start = 0;
+        long end = (long)x;
+        while(start<=end){
+            long mid = start+(end-start)/2;
+            if(mid*mid>(long)x){
+                end = mid-1;
+            } else if (mid*mid<(long)x) {
+                start = mid+1;
+            }
+            else{
+                return (int)mid;
             }
         }
-        return (int)sqrt-1;
+        return (int)end;
     }
 }
