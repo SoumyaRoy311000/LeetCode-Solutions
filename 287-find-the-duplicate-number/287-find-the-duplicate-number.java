@@ -3,10 +3,7 @@ class Solution {
         cyclesort(nums);
         for (int i = 0; i < nums.length; i++) {
             if(nums[i]!=i+1){
-                if(i-1<0){
-                    return nums[i];
-                }
-                return nums[nums[i-1]];
+                return nums[i];
             }
         }
         return -1;
