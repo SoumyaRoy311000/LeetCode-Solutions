@@ -7,14 +7,10 @@ class Solution {
     }
     
     void flip(int[] arr){
-        int start = 0;
-        int end = arr.length - 1;
-        while(start<=end){
-            int temp = arr[start]^1;
-            arr[start] = arr[end]^1;
-            arr[end] = temp;
-            start++;
-            end--;
+        for(int i = 0; i < (arr.length+1)/2; i++){
+            int temp = arr[i]^1;
+            arr[i] = arr[arr.length-i-1]^1;
+            arr[arr.length-i-1] = temp;
         }
     }
 }
