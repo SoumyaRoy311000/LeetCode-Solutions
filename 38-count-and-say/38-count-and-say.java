@@ -13,13 +13,12 @@ class Solution {
 
     private StringBuilder getNextString(StringBuilder ans) {
         StringBuilder nextAns = new StringBuilder();
-        int len = ans.length();
         int i = 0;
 		
-        while (i < len) {
+        while (i < ans.length()) {
             char c = ans.charAt(i++);
             int count = 1;
-            while (i < len && c == ans.charAt(i)) {
+            while (i < ans.length() && c == ans.charAt(i)) {
                 count++;
                 i++;
             }
