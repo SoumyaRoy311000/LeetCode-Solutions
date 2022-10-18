@@ -6,25 +6,24 @@ class Solution {
             for(int i = 0; i<isOdd.length; i++){
                 if(i >= increments[0]*n && i< increments[0]*n+n){
                     if(isOdd[i]){
-                    isOdd[i] = false;
+                        isOdd[i] = false;
+                        count--;
                     }
                     else{
                         isOdd[i] = true;
+                        count++;
                     }
                 }
                 if(i%n == increments[1]){
                     if(isOdd[i]){
-                    isOdd[i] = false;
+                        isOdd[i] = false;
+                        count--;
                     }
                     else{
                         isOdd[i] = true;
+                        count++;
                     }
                 }
-            }
-        }
-        for(int i = 0; i<isOdd.length; i++){
-            if(isOdd[i]){
-                count++;
             }
         }
         return count;
