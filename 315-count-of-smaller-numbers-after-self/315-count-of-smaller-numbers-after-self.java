@@ -1,38 +1,31 @@
-class Solution {
+class Solution {    
     public List<Integer> countSmaller(int[] nums) {
-        
-        int n = nums.length;
-
-        List<Integer> clone = new ArrayList<>();
-        List<Integer> ans = new ArrayList<>();
-        
-        for(int num: nums) clone.add(num);
-        
-        Collections.sort(clone);
-        
-        for(int i=0;i<n;i++){
-            int position = binarySearch(clone,nums[i]);
-            ans.add(position);
-            clone.remove(position);
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            min = Math.min(min, num);
+            max = Math.max(max, num);
         }
         
-        return ans;
-        
-    }
-    
-    public int binarySearch(List<Integer> clone, int target){
-        int start=0;
-        int end = clone.size();
-        
-        while(start<end){
-            int mid =  start + (end-start)/2;
-            if(clone.get(mid)<target){
-                start = mid+1;
-            }else{
-                end = mid;
+        min--;
+        int[] count = new int[max-min+1];
+        Integer[] result = new Integer[nums.length];
+        for (int i = nums.length-1; i >=0; i--) {
+            int k = nums[i]-min-1;
+            int c = 0;
+            do {
+                c += count[k];
+                k -= (-k&k);
+            } while (k > 0);
+            result[i] = c;
+            
+            k = nums[i]-min;
+            while (k < count.length) {
+                count[k]++;
+                k += (-k&k);
             }
         }
         
-        return start;
+        return Arrays.asList(result);
     }
 }
