@@ -3,15 +3,11 @@ class Solution {
         int count = 0;
         boolean[] isOdd = new boolean[m*n];
         for(int[] increments: indices){
-            int elementstartrows = (increments[0])*n;
-            int elementendrows = elementstartrows+n-1;
-            for(int i = elementstartrows; i<= elementendrows; i++){
+            for(int i = increments[0]*n; i< increments[0]*n+n; i++){
                 isOdd[i] = !isOdd[i];
             }
-            int elementcolumn = increments[1];
-            while(elementcolumn<(m*n)){
-                isOdd[elementcolumn] = !isOdd[elementcolumn];
-                elementcolumn+=n;
+            for(int i = increments[1]; i<isOdd.length; i=i+n){
+                isOdd[i] = !isOdd[i];
             }
         }
         for(int i = 0; i<isOdd.length; i++){
