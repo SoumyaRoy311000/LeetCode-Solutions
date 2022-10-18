@@ -6,21 +6,11 @@ class Solution {
             int elementstartrows = (increments[0])*n;
             int elementendrows = elementstartrows+n-1;
             for(int i = elementstartrows; i<= elementendrows; i++){
-                if(isOdd[i]){
-                    isOdd[i] = false;
-                }
-                else{
-                    isOdd[i] = true;
-                }
+                isOdd[i] = !isOdd[i];
             }
             int elementcolumn = increments[1];
             while(elementcolumn<(m*n)){
-                if(isOdd[elementcolumn]){
-                    isOdd[elementcolumn] = false;
-                }
-                else{
-                    isOdd[elementcolumn] = true;
-                }
+                isOdd[elementcolumn] = !isOdd[elementcolumn];
                 elementcolumn+=n;
             }
         }
