@@ -6,6 +6,14 @@ class Solution {
         if(n == 1){
             return 1;
         }
-        return fib(n-1)+fib(n-2);
+        int zero = 0;
+        int first = 1;
+        int sum = 0;
+        for(int i = 1; i<n; i++){
+            sum = zero+first;
+            zero = first;
+            first = sum;
+        }
+        return sum;
     }
 }
