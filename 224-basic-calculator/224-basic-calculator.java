@@ -1,22 +1,22 @@
 class Solution {
-    int idx=0; // this index traverse the string in one pass, between different level of recursion
-    public int calculate(String s) { // Initialization should be here
+    int index=0;
+    public int calculate(String s) {
         return calc(s);
     }
     
     private int calc(String s) {
         int res = 0, num = 0, sign = 1;
-        while (idx < s.length()) {
-            char c = s.charAt(idx++);
+        while (index < s.length()) {
+            char c = s.charAt(index++);
             if (c >= '0' && c <= '9') num = num * 10 + c - '0';
-            else if (c == '(') num = calc(s); // ( is start of a new sub-problem, Let recursion solve the sub-problem
+            else if (c == '(') num = calc(s);
             else if (c == ')') return res + sign * num;
-            else if (c == '+' || c == '-') { // only when we meet a new sign, we know a while number has been read
+            else if (c == '+' || c == '-') {
                 res += sign * num;
                 num = 0;
                 sign = c == '-' ? -1 : 1;
             }
         }
-        return res + sign * num; // last number is not processed yet
+        return res + sign * num;
     }
 }
