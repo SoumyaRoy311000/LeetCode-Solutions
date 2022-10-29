@@ -1,7 +1,6 @@
 class Solution {
-    int idx; // this index traverse the string in one pass, between different level of recursion
-    public int calculate(String s) {
-        idx = 0; // Initialization should be here
+    int idx=0; // this index traverse the string in one pass, between different level of recursion
+    public int calculate(String s) { // Initialization should be here
         return calc(s);
     }
     
